@@ -29,4 +29,12 @@ def huffman(n: int, s: List[str], f: List[int]) -> Node:
 
     # Complete the code here
 
+    while len(heap) > 1:
+        f1, n1 = heappop(heap)
+        f2, n2 = heappop(heap)
+        parent = Node("+", f1 + f2)
+        parent.left = n1
+        parent.right = n2
+        heappush(heap, (parent.freq, parent))
+        
     return heappop(heap)[1]
